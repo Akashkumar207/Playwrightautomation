@@ -1,0 +1,27 @@
+// Hard Assertions
+const {test,expect } = require('@playwright/test')
+test('SoftAssertionsTest', async ({ page }) => {
+
+    await page.goto('https://www.demoblaze.com/index.html');
+   
+
+    page.waitForTimeout(2000)
+
+    //Hard Assertions
+       const brand=  await  page.locator('.navbar-brand')
+    await expect(brand).toHaveTitle('STORE');
+    await expect(page).toHaveURL("https://www.demoblaze.com/index.html");
+
+    await expect(page.locator('.navbar-brand')).toBeVisible();
+
+    //Soft Assertions
+
+    await expect(page).toHaveTitle('STORE122');
+    await expect(page).toHaveURL("https://www.demoblaze.com/index.html");
+
+    await expect(page.locator('.navbar-brand')).toBeVisible();
+
+
+
+
+})

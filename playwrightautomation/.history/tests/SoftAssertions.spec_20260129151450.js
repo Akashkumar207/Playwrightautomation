@@ -1,0 +1,15 @@
+const test = require('node:test');
+
+
+
+// Hard Assertions
+const { test, expect } = require('@playwright/test')
+test('SoftAssertionsTest', async ({ page }) => {
+
+    await page.goto('https://demo.nopcommerce.com/index.html');
+
+    await expect(page).toHaveTitle('STORE');
+    await expect(page).toHaveURL("https://www.demoblaze.com/index.html");
+    await expect(page.locator('.navbar-brand')).toBeVisible();
+
+})
